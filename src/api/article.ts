@@ -1,9 +1,9 @@
 import api from "./core";
 import { PostArticleRequest } from "src/models/article";
 
-export const postArticle = async (data: PostArticleRequest) =>
-  await api.post("/api/article", data);
-
+export const postArticle = async (data: PostArticleRequest) => {
+  return await api.post("/api/article", data);
+};
 export const deleteArticle = async (id: string | string[] | undefined) => {
   const { data } = await api.delete(`/api/article?id=${id}`);
   return data;

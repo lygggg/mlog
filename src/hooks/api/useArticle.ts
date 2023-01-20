@@ -7,9 +7,7 @@ import {
 } from "src/api/article";
 
 export const useArticles = () => {
-  return useQuery(["articles"], () => findArticles(), {
-    refetchOnWindowFocus: false,
-  });
+  return useQuery(["articles"], () => findArticles());
 };
 
 export const useArticle = (id: string) => {

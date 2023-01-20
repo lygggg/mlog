@@ -29,7 +29,17 @@ type CustomAppProps = AppProps & {
 
 function MyApp({ Component, pageProps }: CustomAppProps) {
   const router = useRouter();
-  const [queryClient] = useState(() => new QueryClient());
+  const [queryClient] = useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            refetchOnWindowFocus: false,
+            retry: false,
+          },
+        },
+      }),
+  );
 
   useEffect(() => {
     const handleRouteChange = (url: URL) => {
