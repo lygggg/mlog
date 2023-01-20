@@ -11,7 +11,6 @@ const HeaderBar = () => {
   const [openModal, closeModal, modalOpen] = useModal();
 
   const handleModalOpen = () => openModal();
-
   return (
     <>
       <LoginModal isActive={modalOpen} handleClose={closeModal} />

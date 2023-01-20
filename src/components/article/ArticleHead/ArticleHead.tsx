@@ -18,7 +18,6 @@ const ArticleHead: React.FC<Props> = ({ article }) => {
     push,
   } = useRouter();
   const { data: session } = useSession();
-
   const {
     title,
     tags,
@@ -57,7 +56,7 @@ const ArticleHead: React.FC<Props> = ({ article }) => {
   return (
     <Container>
       <Title data-testid="article-head">{title}</Title>
-      {session?.user.email === email && (
+      {session?.isAdmin && (
         <EndContainer>
           <Link href={{ pathname: "/write", query: { id: _id } }}>
             <Button

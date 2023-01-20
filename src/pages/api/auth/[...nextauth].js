@@ -41,5 +41,15 @@ export const authOptions = {
       },
     },
   },
+  callbacks: {
+    async session({ session }) {
+      if (!session?.user?.email) return session;
+
+      const administrators = ["baayoo90@gmail.com"];
+      session.isAdmin = administrators.includes(session.user.email);
+
+      return session;
+    },
+  },
 };
 export default NextAuth(authOptions);
